@@ -7,7 +7,6 @@ public class Match3 : MonoBehaviour
 {
     public ArrayLayot boardLayout;
     public LevelGoal goal;
-    //GameManager manager;
     [Header("UI Elements")]
     public RectTransform gameBoard;
     public RectTransform killedBoard;
@@ -28,7 +27,6 @@ public class Match3 : MonoBehaviour
     List<FlippedPieces> flipped;
     List<NodePiece> dead;
     List<KilledPiece> killed;
-
 
     System.Random random;
 
@@ -281,13 +279,6 @@ public class Match3 : MonoBehaviour
     void KillPiece(Point p)
     {
         List<KilledPiece>  available = new List<KilledPiece>();
-        for (int i = 0; i < killed.Count; i++)
-        {
-            //if (!killed[i].falling)
-            //{
-            //    available.Add(killed[i]);
-            //}
-        }
         KilledPiece set = null;
         if (available.Count > 0)
         {
@@ -306,6 +297,10 @@ public class Match3 : MonoBehaviour
         {
             set.Initialize(pieces[val], getPositionFromPoint(p));
         }
+    }
+    public void GoalMatch()
+    {
+
     }
     List<Point> isConnected(Point p, bool main)
     {
